@@ -5,319 +5,232 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michael Laurence B. Agregado — MMA Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#07090d;--s1:#0d1117;--s2:#111820;--s3:#162030;
   --g:#2eff9a;--g2:#00d46a;--gd:rgba(46,255,154,.12);
   --v:#b94fff;--v2:#8822e0;--vd:rgba(185,79,255,.13);
-  --txt:#ccdde8;--mute:#3d5a6a;--border:rgba(255,255,255,.06);
+  --txt:#ccdde8;--mute:#5a7a8a;--border:rgba(255,255,255,.07);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;height:100%;}
-body{background:var(--bg);color:var(--txt);font-family:'Oxanium',sans-serif;overflow-x:hidden;min-height:100%;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;min-height:100%;font-size:16px;}
 a{text-decoration:none;color:inherit;}
-button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:pointer;color:inherit;}
+button{border:none;background:none;font-family:'Space Grotesk',sans-serif;cursor:pointer;color:inherit;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--s1);}
 ::-webkit-scrollbar-thumb{background:var(--v2);border-radius:2px;}
- 
+
 /* NAV */
 #topnav{
-  position:fixed;top:0;left:0;right:0;z-index:2000;height:56px;
-  display:flex;align-items:center;padding:0 28px;gap:0;
+  position:fixed;top:0;left:0;right:0;z-index:2000;height:60px;
+  display:flex;align-items:center;padding:0 32px;gap:0;
   background:rgba(7,9,13,.95);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 .tn-logo{
-  display:flex;align-items:center;gap:10px;margin-right:32px;
-  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:var(--g);white-space:nowrap;
+  display:flex;align-items:center;gap:10px;margin-right:36px;
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.14em;color:var(--g);white-space:nowrap;
 }
-.tn-dot{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g);animation:pulse 2.4s ease-in-out infinite;}
+.tn-dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g);animation:pulse 2.4s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
 .tn-pages{display:flex;align-items:center;gap:2px;flex:1;}
 .tn-btn{
-  padding:7px 16px;font-family:'IBM Plex Mono',monospace;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--mute);border-radius:2px;transition:color .2s,background .2s;position:relative;
+  padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);border-radius:3px;transition:color .2s,background .2s;position:relative;
 }
 .tn-btn:hover{color:var(--txt);}
-.tn-btn.active{color:var(--g);background:rgba(46,255,154,.06);}
-.tn-btn.active::after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:var(--g);box-shadow:0 0 8px var(--g);border-radius:1px;}
-.tn-right{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--mute);text-align:right;line-height:1.7;}
- 
+.tn-btn.active{color:var(--g);background:rgba(46,255,154,.07);}
+.tn-btn.active::after{content:'';position:absolute;bottom:0;left:18px;right:18px;height:2px;background:var(--g);box-shadow:0 0 8px var(--g);border-radius:1px;}
+.tn-right{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--mute);text-align:right;line-height:1.7;}
+
 /* PAGES */
-.page{display:none;min-height:100vh;padding-top:56px;animation:fadein .3s ease;}
+.page{display:none;min-height:100vh;padding-top:60px;animation:fadein .3s ease;}
 .page.show{display:block;}
-#pg-home{display:none;min-height:100vh;padding-top:56px;animation:fadein .3s ease;}
+#pg-home{display:none;min-height:100vh;padding-top:60px;animation:fadein .3s ease;}
 #pg-home.show{display:flex;flex-direction:column;}
-@keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
- 
+@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
 /* HOME */
 .home-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 55% 50% at 75% 30%,rgba(46,255,154,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 18% 70%,rgba(185,79,255,.06) 0%,transparent 60%);}
 .home-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(46,255,154,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(46,255,154,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);}
 .home-main{flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;padding:60px 64px;position:relative;z-index:1;}
-.home-tag{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g);opacity:.8;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.home-tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g);opacity:.85;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
 .home-tag::before{content:'';width:28px;height:1px;background:var(--g);}
-.home-h1{font-family:'DM Serif Display',serif;font-size:clamp(3.5rem,5.5vw,6.5rem);line-height:.95;margin-bottom:28px;}
+.home-h1{font-family:'Playfair Display',serif;font-size:clamp(3.8rem,5.5vw,6.8rem);line-height:.95;margin-bottom:30px;}
 .hh-g{color:var(--g);}.hh-v{color:var(--v);font-style:italic;}.hh-w{color:var(--txt);}
-.home-sub{font-size:.88rem;line-height:1.9;color:var(--mute);max-width:420px;margin-bottom:40px;font-weight:300;}
+.home-sub{font-size:1rem;line-height:1.85;color:var(--mute);max-width:440px;margin-bottom:42px;font-weight:400;}
 .home-sub strong{color:var(--txt);font-weight:600;}.home-sub em{color:var(--g);font-style:normal;}
-.home-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:420px;}
-.hcard{padding:20px;background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--g);cursor:pointer;transition:background .22s,transform .2s;text-align:left;}
+.home-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;}
+.hcard{padding:22px;background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--g);cursor:pointer;transition:background .22s,transform .2s;text-align:left;}
 .hcard:nth-child(even){border-top-color:var(--v);}
 .hcard:hover{background:var(--s2);transform:translateY(-3px);}
-.hcard-ico{font-size:1.2rem;margin-bottom:7px;}
-.hcard-lbl{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:3px;}
+.hcard-ico{font-size:1.3rem;margin-bottom:8px;}
+.hcard-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:4px;}
 .hcard:nth-child(even) .hcard-lbl{color:var(--v);}
-.hcard-t{font-size:.86rem;font-weight:700;color:var(--txt);}
-.hcard-s{font-family:'IBM Plex Mono',monospace;font-size:.42rem;color:var(--mute);margin-top:3px;}
+.hcard-t{font-size:.95rem;font-weight:700;color:var(--txt);}
+.hcard-s{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--mute);margin-top:4px;}
 .home-right{padding-left:56px;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:1px;position:relative;z-index:1;}
-.hstat{padding:20px 26px;background:var(--s1);display:flex;justify-content:space-between;align-items:baseline;transition:background .2s;}
+.hstat{padding:22px 28px;background:var(--s1);display:flex;justify-content:space-between;align-items:baseline;transition:background .2s;}
 .hstat:hover{background:var(--s2);}
-.hstat-n{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1;background:linear-gradient(135deg,var(--g),var(--v));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hstat-l{font-family:'IBM Plex Mono',monospace;font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);text-align:right;max-width:80px;}
-.home-strip{border-top:1px solid var(--border);padding:14px 64px;display:flex;gap:40px;position:relative;z-index:1;flex-wrap:wrap;}
-.strip-item{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:9px;}
+.hstat-n{font-family:'Playfair Display',serif;font-size:3.2rem;line-height:1;background:linear-gradient(135deg,var(--g),var(--v));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hstat-l{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:right;max-width:86px;}
+.home-strip{border-top:1px solid var(--border);padding:16px 64px;display:flex;gap:40px;position:relative;z-index:1;flex-wrap:wrap;}
+.strip-item{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:9px;}
 .strip-item span{color:var(--g);}
- 
+
 /* ABOUT */
-.about-wrap{max-width:1080px;margin:0 auto;padding:60px 48px;}
-.pg-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--v);display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.about-wrap{max-width:1080px;margin:0 auto;padding:64px 52px;}
+.pg-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--v);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .pg-eyebrow::before{content:'';width:18px;height:1px;background:var(--v);}
-.pg-title{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5.5vw,5rem);line-height:.95;margin-bottom:48px;}
-.a2col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.a-prose{font-size:.86rem;line-height:1.95;color:var(--mute);font-weight:300;}
-.a-prose strong{color:var(--g);font-weight:600;}.a-prose em{color:var(--v);font-style:normal;}.a-prose p+p{margin-top:14px;}
+.pg-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,5.2rem);line-height:.95;margin-bottom:52px;}
+.a2col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.a-prose{font-size:.97rem;line-height:1.9;color:var(--mute);font-weight:400;}
+.a-prose strong{color:var(--g);font-weight:600;}.a-prose em{color:var(--v);font-style:normal;}.a-prose p+p{margin-top:15px;}
 .acards{display:flex;flex-direction:column;gap:1px;margin-top:28px;}
-.ac{background:var(--s1);padding:16px 18px;border-left:2px solid var(--g);transition:background .22s;}
+.ac{background:var(--s1);padding:18px 20px;border-left:2px solid var(--g);transition:background .22s;}
 .ac:nth-child(even){border-left-color:var(--v);}
 .ac:hover{background:var(--s2);}
-.ac-t{font-weight:700;font-size:.78rem;color:var(--txt);margin-bottom:5px;}
-.ac-b{font-size:.74rem;line-height:1.75;color:var(--mute);}
+.ac-t{font-weight:700;font-size:.9rem;color:var(--txt);margin-bottom:6px;}
+.ac-b{font-size:.86rem;line-height:1.78;color:var(--mute);}
 .ac-b strong{color:var(--g);}
 .ac:nth-child(even) .ac-b strong{color:var(--v);}
-.ameta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:32px;}
-.am-c{background:var(--s1);padding:15px 16px;}
-.am-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.2em;text-transform:uppercase;color:var(--v);margin-bottom:3px;}
-.am-v{font-weight:600;font-size:.8rem;color:var(--txt);}
+.ameta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:34px;}
+.am-c{background:var(--s1);padding:16px 18px;}
+.am-l{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--v);margin-bottom:4px;}
+.am-v{font-weight:600;font-size:.9rem;color:var(--txt);}
 .atl{position:relative;padding-left:18px;}
 .atl::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--g),var(--v),transparent);}
-.atl-row{position:relative;padding-left:26px;padding-bottom:22px;display:grid;grid-template-columns:72px 1fr;gap:10px;}
+.atl-row{position:relative;padding-left:26px;padding-bottom:24px;display:grid;grid-template-columns:80px 1fr;gap:12px;}
 .atl-row::before{content:'';position:absolute;left:-5px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--g);}
 .atl-row:nth-child(even)::before{border-color:var(--v);}
-.atl-wk{font-family:'IBM Plex Mono',monospace;font-size:.44rem;color:var(--g);letter-spacing:.1em;padding-top:2px;}
+.atl-wk{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--g);letter-spacing:.1em;padding-top:2px;}
 .atl-row:nth-child(even) .atl-wk{color:var(--v);}
-.atl-txt{font-size:.76rem;line-height:1.75;color:var(--mute);}
+.atl-txt{font-size:.88rem;line-height:1.78;color:var(--mute);}
 .atl-txt strong{color:var(--txt);}
- 
+
 /* ═══ YOUTUBE-STYLE LAYOUT ═══ */
-.yt-page{padding-top:56px;}
-.yt-layout{
-  display:grid;
-  grid-template-columns:1fr 360px;
-  min-height:calc(100vh - 56px);
-  gap:0;
-}
- 
-/* Main video/content area */
-.yt-main{
-  background:var(--bg);
-  overflow-y:auto;
-  display:flex;
-  flex-direction:column;
-}
- 
-/* Playlist sidebar */
+.yt-page{padding-top:60px;}
+.yt-layout{display:grid;grid-template-columns:1fr 380px;min-height:calc(100vh - 60px);gap:0;}
+.yt-main{background:var(--bg);overflow-y:auto;display:flex;flex-direction:column;}
 .yt-sidebar{
-  background:var(--s1);
-  border-left:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  height:calc(100vh - 56px);
-  position:sticky;
-  top:56px;
+  background:var(--s1);border-left:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;
+  height:calc(100vh - 60px);position:sticky;top:60px;
 }
 .yt-sb-header{
-  padding:14px 16px 10px;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-  background:var(--s2);
+  padding:16px 18px 12px;border-bottom:1px solid var(--border);
+  flex-shrink:0;background:var(--s2);
 }
 .yt-sb-title{
-  font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--v);
-  display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--v);
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;
 }
-.yt-sb-prog-bar{height:2px;background:var(--s3);border-radius:1px;overflow:hidden;}
-.yt-sb-prog-fill{height:100%;border-radius:1px;background:linear-gradient(90deg,var(--g),var(--v));transition:width .5s ease;}
-.yt-sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.08em;color:var(--mute);margin-top:6px;}
+.yt-sb-prog-bar{height:3px;background:var(--s3);border-radius:2px;overflow:hidden;}
+.yt-sb-prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g),var(--v));transition:width .5s ease;}
+.yt-sb-meta{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.06em;color:var(--mute);margin-top:7px;}
 .yt-sb-meta b{color:var(--g);}
- 
 .yt-sb-list{overflow-y:auto;flex:1;}
 .yt-sb-list::-webkit-scrollbar{width:3px;}
 .yt-sb-list::-webkit-scrollbar-thumb{background:var(--v2);}
- 
-/* Playlist item — YouTube style */
+
+/* Playlist item */
 .pl-item{
-  display:grid;
-  grid-template-columns:44px 80px 1fr;
-  gap:0;
-  padding:0;
-  cursor:pointer;
-  border-bottom:1px solid var(--border);
-  transition:background .15s;
-  position:relative;
-  text-align:left;
-  width:100%;
-  align-items:stretch;
-  border-left:2px solid transparent;
+  display:grid;grid-template-columns:48px 88px 1fr;
+  gap:0;padding:0;cursor:pointer;border-bottom:1px solid var(--border);
+  transition:background .15s;position:relative;text-align:left;width:100%;
+  align-items:stretch;border-left:3px solid transparent;
 }
 .pl-item:hover{background:var(--s2);}
-.pl-item.active{background:rgba(46,255,154,.05);border-left-color:var(--g);}
-.pl-item.done .pl-num::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--g2);background:rgba(0,0,0,.65);}
- 
-/* Number column */
+.pl-item.active{background:rgba(46,255,154,.06);border-left-color:var(--g);}
+.pl-item.ref-item.active{border-left-color:var(--v);}
+.pl-item.done .pl-num::after{
+  content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:var(--g2);background:rgba(0,0,0,.65);
+}
 .pl-num{
   display:flex;align-items:center;justify-content:center;
-  font-family:'IBM Plex Mono',monospace;font-size:.52rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;
   color:var(--mute);letter-spacing:.06em;position:relative;
-  padding:10px 4px;
-  background:rgba(0,0,0,.2);
-  flex-shrink:0;
+  padding:10px 4px;background:rgba(0,0,0,.2);flex-shrink:0;
 }
 .pl-item.active .pl-num{color:var(--g);}
- 
-/* Thumbnail column */
-.pl-thumb{
-  position:relative;flex-shrink:0;overflow:hidden;
-  background:var(--s3);
-}
-.pl-thumb-inner{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.pl-thumb-orb{
-  border-radius:50%;flex-shrink:0;
-  box-shadow:inset -4px -3px 10px rgba(0,0,0,.8),inset 2px 2px 4px rgba(255,255,255,.04);
-}
-.pl-thumb-roto{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;
-  background:linear-gradient(135deg,var(--s2),var(--s3));
-}
-.pl-thumb-bar{
-  position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--s3);
-}
+.pl-item.ref-item .pl-num{color:var(--v);}
+.pl-thumb{position:relative;flex-shrink:0;overflow:hidden;background:var(--s3);}
+.pl-thumb-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;}
+.pl-thumb-orb{border-radius:50%;flex-shrink:0;box-shadow:inset -4px -3px 10px rgba(0,0,0,.8),inset 2px 2px 4px rgba(255,255,255,.04);transition:transform .2s;}
+.pl-item:hover .pl-thumb-orb{transform:scale(1.06);}
+.pl-thumb-roto{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;background:linear-gradient(135deg,var(--s2),var(--s3));}
+.pl-thumb-bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--s3);}
 .pl-thumb-bar-fill{height:100%;background:var(--g);transition:width .3s;}
-.pl-item.active .pl-thumb-bar-fill{background:var(--g);box-shadow:0 0 4px var(--g);}
- 
-/* Info column */
-.pl-info{
-  padding:10px 10px 10px 10px;min-width:0;display:flex;flex-direction:column;justify-content:center;
-}
+.pl-item.active .pl-thumb-bar-fill{box-shadow:0 0 5px var(--g);}
+.pl-info{padding:11px 12px;min-width:0;display:flex;flex-direction:column;justify-content:center;}
 .pl-info-title{
-  font-size:.72rem;font-weight:600;color:var(--txt);line-height:1.3;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;
+  font-size:.82rem;font-weight:600;color:var(--txt);line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px;
 }
 .pl-item.active .pl-info-title{color:var(--g);}
+.pl-item.ref-item .pl-info-title{color:var(--v);}
 .pl-info-sub{
-  font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.06em;color:var(--mute);
+  font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.05em;color:var(--mute);
   display:flex;align-items:center;gap:5px;flex-wrap:wrap;
 }
 .pl-info-badge{
-  font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(46,255,154,.5);border:1px solid rgba(46,255,154,.12);padding:1px 5px;
+  font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(46,255,154,.55);border:1px solid rgba(46,255,154,.14);padding:2px 6px;
 }
-.pl-item.active .pl-info-badge{color:var(--g);border-color:rgba(46,255,154,.3);}
-.pl-info-badge.done-badge{color:rgba(0,212,106,.6);border-color:rgba(0,212,106,.15);}
- 
-/* ═══ MAIN CONTENT PANEL ═══ */
-.yt-video-wrap{
-  background:var(--s1);flex-shrink:0;
-  position:relative;
-}
+.pl-item.ref-item .pl-info-badge{color:rgba(185,79,255,.7);border-color:rgba(185,79,255,.2);}
+.pl-item.active .pl-info-badge{color:var(--g);border-color:rgba(46,255,154,.35);}
+.pl-info-badge.done-badge{color:rgba(0,212,106,.65);border-color:rgba(0,212,106,.2);}
+
+/* Main panel */
+.yt-video-wrap{background:var(--s1);flex-shrink:0;position:relative;}
 .yt-video-ratio{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}
 .yt-video-ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-.yt-video-ph{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  background:linear-gradient(135deg,var(--s2),var(--s3));
-}
-.yt-play-btn{
-  width:56px;height:56px;border-radius:50%;border:1.5px solid var(--g);
-  display:flex;align-items:center;justify-content:center;color:var(--g);font-size:1.1rem;padding-left:4px;
-  transition:background .18s,transform .18s;
-}
-.yt-video-ph:hover .yt-play-btn{background:rgba(46,255,154,.08);transform:scale(1.05);}
-.yt-ph-txt{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:center;line-height:2.2;}
- 
-/* Video URL input */
-.yt-url-bar{
-  display:flex;border-top:1px solid var(--border);
-  background:var(--s2);
-}
-.yt-url-bar input{
-  flex:1;padding:10px 14px;background:transparent;border:none;outline:none;
-  font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--txt);
-}
+.yt-video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,var(--s2),var(--s3));}
+.yt-play-btn{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:1.2rem;padding-left:4px;transition:background .18s,transform .18s;}
+.yt-video-ph:hover .yt-play-btn{background:rgba(46,255,154,.09);transform:scale(1.06);}
+.yt-ph-txt{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:center;line-height:2.2;}
+
+.yt-url-bar{display:flex;border-top:1px solid var(--border);background:var(--s2);}
+.yt-url-bar input{flex:1;padding:11px 16px;background:transparent;border:none;outline:none;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--txt);}
 .yt-url-bar input::placeholder{color:var(--mute);}
-.yt-url-bar button{
-  padding:10px 18px;background:var(--v2);color:#fff;
-  font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  border-left:1px solid var(--border);transition:background .18s;
-}
+.yt-url-bar button{padding:11px 20px;background:var(--v2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-left:1px solid var(--border);transition:background .18s;}
 .yt-url-bar button:hover{background:var(--v);}
- 
-/* Info below video */
-.yt-info{padding:24px 32px 16px;flex-shrink:0;border-bottom:1px solid var(--border);}
-.yt-info-eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--v);margin-bottom:6px;display:flex;align-items:center;gap:10px;
-}
-.yt-info-title{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--txt);line-height:1.1;margin-bottom:10px;}
-.yt-info-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
-.yt-tag{
-  font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(46,255,154,.5);border:1px solid rgba(46,255,154,.1);padding:3px 9px;
-}
-.yt-info-desc{font-size:.84rem;line-height:1.9;color:var(--mute);font-weight:300;max-width:680px;}
- 
-/* Progress/completion area */
-.yt-prog-bar-wrap{padding:14px 32px;background:var(--s1);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;flex-shrink:0;}
-.yt-pbl{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);}
-.yt-pb-track{flex:1;height:3px;background:var(--s3);border-radius:2px;}
+
+.yt-info{padding:26px 36px 18px;flex-shrink:0;border-bottom:1px solid var(--border);}
+.yt-info-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--v);margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.yt-info-title{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--txt);line-height:1.1;margin-bottom:12px;}
+.yt-info-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.yt-tag{font-family:'JetBrains Mono',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(46,255,154,.55);border:1px solid rgba(46,255,154,.12);padding:4px 10px;}
+.yt-info-desc{font-size:.95rem;line-height:1.88;color:var(--mute);font-weight:400;max-width:720px;}
+
+.yt-prog-bar-wrap{padding:15px 36px;background:var(--s1);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:18px;flex-shrink:0;}
+.yt-pbl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);}
+.yt-pb-track{flex:1;height:4px;background:var(--s3);border-radius:2px;}
 .yt-pb-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g),var(--v));transition:width .5s ease;}
-.yt-pb-pct{font-family:'IBM Plex Mono',monospace;font-size:.52rem;font-weight:700;color:var(--g);min-width:36px;text-align:right;}
- 
-/* Nav buttons */
-.yt-nav{padding:14px 32px;display:flex;gap:8px;align-items:center;background:var(--bg);flex-shrink:0;}
-.yt-nav-btn{
-  padding:8px 20px;font-family:'IBM Plex Mono',monospace;font-size:.5rem;
-  letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--border);color:var(--mute);
-  transition:color .2s,border-color .2s,background .2s;
-}
-.yt-nav-btn:hover:not(:disabled){color:var(--g);border-color:rgba(46,255,154,.22);background:rgba(46,255,154,.03);}
+.yt-pb-pct{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;color:var(--g);min-width:40px;text-align:right;}
+
+.yt-nav{padding:16px 36px;display:flex;gap:9px;align-items:center;background:var(--bg);flex-shrink:0;}
+.yt-nav-btn{padding:9px 22px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border);color:var(--mute);transition:color .2s,border-color .2s,background .2s;}
+.yt-nav-btn:hover:not(:disabled){color:var(--g);border-color:rgba(46,255,154,.25);background:rgba(46,255,154,.04);}
 .yt-nav-btn:disabled{opacity:.3;cursor:not-allowed;}
 .yt-nav-next{background:var(--g);color:var(--bg);border-color:var(--g);font-weight:700;}
 .yt-nav-next:hover{opacity:.85;}
-.yt-nav-done{border-color:rgba(185,79,255,.2);color:var(--v);}
-.yt-nav-done:hover{background:rgba(185,79,255,.06);border-color:var(--v);}
+.yt-nav-done{border-color:rgba(185,79,255,.22);color:var(--v);}
+.yt-nav-done:hover{background:rgba(185,79,255,.07);border-color:var(--v);}
 .yt-nav-spacer{flex:1;}
- 
-/* Planet specific */
+
+/* Planet / Solar vis */
 .planet-vis{
-  height:260px;display:flex;align-items:center;justify-content:center;
+  height:280px;display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
   background:radial-gradient(ellipse 60% 70% at 50% 50%,var(--s2),var(--bg));
   flex-shrink:0;
 }
-.planet-badge{
-  position:absolute;top:12px;right:12px;
-  font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,180,80,.4);border:1px solid rgba(255,180,80,.1);padding:3px 8px;
-}
-.pp-sphere{border-radius:50%;box-shadow:inset -18px -12px 42px rgba(0,0,0,.9),inset 4px 4px 16px rgba(255,255,255,.04);}
+.planet-badge{position:absolute;top:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,180,80,.45);border:1px solid rgba(255,180,80,.12);padding:4px 9px;}
+.pp-sphere{border-radius:50%;box-shadow:inset -18px -12px 44px rgba(0,0,0,.9),inset 5px 5px 18px rgba(255,255,255,.04);}
 .pp-mercury{width:110px;height:110px;background:radial-gradient(circle at 35% 32%,#d0c0a8,#7a6448 55%,#161008);}
 .pp-venus  {width:150px;height:150px;background:radial-gradient(circle at 35% 30%,#f8e895,#c8820a 50%,#380e00);}
 .pp-earth  {width:160px;height:160px;background:radial-gradient(circle at 36% 30%,#4cc8f0,#1470b8 46%,#041c3c);}
@@ -326,22 +239,38 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
 .pp-saturn {width:166px;height:166px;background:radial-gradient(circle at 36% 32%,#f0d898,#b47228 48%,#2c1000);}
 .pp-uranus {width:138px;height:138px;background:radial-gradient(circle at 35% 33%,#84d8e8,#1890b0 50%,#043040);}
 .pp-neptune{width:128px;height:128px;background:radial-gradient(circle at 34% 33%,#5090f8,#0e3cc0 54%,#010a28);}
-.saturn-ring{position:absolute;border:3px solid rgba(240,200,140,.14);border-radius:50%;transform:rotate(-18deg);pointer-events:none;}
- 
-/* Planet facts grid */
-.planet-facts{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
-  margin:16px 32px;
+/* Sun */
+.pp-sun{width:220px;height:220px;background:radial-gradient(circle at 38% 35%,#fff8c0,#ffcc00 30%,#ff8800 60%,#b83000 85%,#400000);box-shadow:0 0 60px rgba(255,160,0,.18),inset -20px -14px 50px rgba(0,0,0,.5);}
+/* Moon */
+.pp-moon{width:130px;height:130px;background:radial-gradient(circle at 36% 33%,#e8e0d0,#9a9080 52%,#1c1a14);box-shadow:inset -14px -10px 38px rgba(0,0,0,.85),inset 3px 3px 12px rgba(255,255,255,.06);}
+/* Solar system overview - orrery-style visual */
+.solar-overview{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  position:relative;
 }
-.pf-cell{background:var(--s1);padding:12px 14px;}
-.pf-l{font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.16em;text-transform:uppercase;color:var(--v);margin-bottom:3px;}
-.pf-v{font-weight:700;font-size:.78rem;color:var(--txt);}
- 
-/* Planet sidebar items */
-.pl-item .pl-thumb-orb{transition:transform .2s;}
-.pl-item:hover .pl-thumb-orb{transform:scale(1.05);}
- 
-/* Orb colors for sidebar */
+.orrery-sun{
+  width:40px;height:40px;border-radius:50%;
+  background:radial-gradient(circle at 40% 38%,#fff8c0,#ffcc00 40%,#ff8800 75%,#b83000);
+  box-shadow:0 0 30px rgba(255,180,0,.3);
+  position:absolute;
+}
+.orrery-orbit{
+  border-radius:50%;border:1px solid rgba(255,255,255,.07);
+  position:absolute;
+}
+.orrery-dot{
+  width:8px;height:8px;border-radius:50%;position:absolute;top:50%;transform:translateY(-50%);
+}
+
+.saturn-ring{position:absolute;border:3px solid rgba(240,200,140,.15);border-radius:50%;transform:rotate(-18deg);pointer-events:none;}
+.sun-glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,200,0,.15),transparent 70%);pointer-events:none;}
+
+.planet-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:18px 36px;}
+.pf-cell{background:var(--s1);padding:14px 16px;}
+.pf-l{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--v);margin-bottom:4px;}
+.pf-v{font-weight:700;font-size:.9rem;color:var(--txt);}
+
+/* Orb sidebar colors */
 .orb-mercury{background:radial-gradient(circle at 35% 32%,#d0c0a8,#7a6448 55%,#161008);}
 .orb-venus  {background:radial-gradient(circle at 35% 30%,#f8e895,#c8820a 50%,#380e00);}
 .orb-earth  {background:radial-gradient(circle at 36% 30%,#4cc8f0,#1470b8 46%,#041c3c);}
@@ -350,35 +279,36 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
 .orb-saturn {background:radial-gradient(circle at 36% 32%,#f0d898,#b47228 48%,#2c1000);}
 .orb-uranus {background:radial-gradient(circle at 35% 33%,#84d8e8,#1890b0 50%,#043040);}
 .orb-neptune{background:radial-gradient(circle at 34% 33%,#5090f8,#0e3cc0 54%,#010a28);}
- 
-/* Planet type labels */
-.type-rocky{color:rgba(210,100,50,.7);}
-.type-gas{color:rgba(240,180,80,.7);}
-.type-ice{color:rgba(100,180,240,.7);}
- 
-/* Scrollable main for long content */
-.yt-main-scroll{overflow-y:auto;flex:1;}
- 
-@media(max-width:900px){
-  .home-main{grid-template-columns:1fr;padding:44px 24px;}
+.orb-sun    {background:radial-gradient(circle at 38% 35%,#fff8c0,#ffcc00 30%,#ff8800 65%,#b83000);}
+.orb-moon   {background:radial-gradient(circle at 36% 33%,#e8e0d0,#9a9080 52%,#1c1a14);}
+.orb-system {background:radial-gradient(circle at 40% 38%,#fff8c0,#ffcc00 35%,#2255aa 65%,#030820);}
+
+.type-rocky {color:rgba(220,110,60,.8);}
+.type-gas   {color:rgba(240,180,80,.8);}
+.type-ice   {color:rgba(110,190,250,.8);}
+.type-star  {color:rgba(255,220,80,.8);}
+.type-sat   {color:rgba(180,180,190,.8);}
+.type-sys   {color:rgba(100,180,255,.8);}
+
+@media(max-width:960px){
+  .home-main{grid-template-columns:1fr;padding:44px 28px;}
   .home-right{padding-left:0;border-left:none;border-top:1px solid var(--border);padding-top:22px;display:grid;grid-template-columns:1fr 1fr;}
-  .home-strip{padding:14px 24px;gap:20px;}
+  .home-strip{padding:14px 28px;gap:22px;}
   .yt-layout{grid-template-columns:1fr;height:auto;}
-  .yt-sidebar{height:260px;position:relative;top:0;border-left:none;border-top:1px solid var(--border);}
-  .about-wrap{padding:40px 22px;}
+  .yt-sidebar{height:280px;position:relative;top:0;border-left:none;border-top:1px solid var(--border);}
+  .about-wrap{padding:44px 24px;}
   .a2col{grid-template-columns:1fr;}
-  #topnav{padding:0 14px;}
+  #topnav{padding:0 16px;}
   .tn-right{display:none;}
   .planet-facts{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:580px){
   .home-cards{grid-template-columns:1fr;}
-  .yt-layout{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav id="topnav">
   <div class="tn-logo"><div class="tn-dot"></div>Maykel Portfolio</div>
@@ -390,7 +320,7 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
   </div>
   <div class="tn-right">Multimedia &amp; Authoring<br>BSIT-NS-2A · 2026</div>
 </nav>
- 
+
 <!-- HOME -->
 <section id="pg-home" class="show">
   <div class="home-bg"></div>
@@ -402,8 +332,8 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
       <p class="home-sub">A semester-long journey by <strong>Michael Laurence B. Agregado</strong> — <em>60 seconds of rotoscoped animation</em> built frame by frame, alongside a <em>3D solar system</em> in Blender.</p>
       <div class="home-cards">
         <button class="hcard" onclick="goPage('about')"><div class="hcard-ico">📖</div><div class="hcard-lbl">Section 01</div><div class="hcard-t">About the Course</div><div class="hcard-s">MMA overview &amp; semester arc</div></button>
-        <button class="hcard" onclick="goPage('solar')"><div class="hcard-ico">🪐</div><div class="hcard-lbl">Section 02</div><div class="hcard-t">Solar System</div><div class="hcard-s">8 planets · Blender renders</div></button>
-        <button class="hcard" onclick="goPage('roto')"><div class="hcard-ico">🎞️</div><div class="hcard-lbl">Section 03</div><div class="hcard-t">Rotoscoping</div><div class="hcard-s">14 weeks · 60-second film</div></button>
+        <button class="hcard" onclick="goPage('solar')"><div class="hcard-ico">🪐</div><div class="hcard-lbl">Section 02</div><div class="hcard-t">Solar System</div><div class="hcard-s">Sun, Moon + 8 planets</div></button>
+        <button class="hcard" onclick="goPage('roto')"><div class="hcard-ico">🎞️</div><div class="hcard-lbl">Section 03</div><div class="hcard-t">Rotoscoping</div><div class="hcard-s">15 entries · 60-second film</div></button>
         <button class="hcard" onclick="goPage('about')" style="border-top-color:var(--g)"><div class="hcard-ico">⏱️</div><div class="hcard-lbl">Timeline</div><div class="hcard-t">Semester Arc</div><div class="hcard-s">Milestones &amp; process</div></button>
       </div>
     </div>
@@ -423,7 +353,7 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
     <div class="strip-item"><span>◆</span> 4K Export</div>
   </div>
 </section>
- 
+
 <!-- ABOUT -->
 <section id="pg-about" class="page">
   <div class="about-wrap">
@@ -460,33 +390,29 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
     </div>
   </div>
 </section>
- 
-<!-- SOLAR SYSTEM — YouTube layout -->
+
+<!-- SOLAR SYSTEM -->
 <section id="pg-solar" class="page yt-page">
   <div class="yt-layout">
-    <!-- Main panel -->
     <div class="yt-main" id="solarMain"></div>
-    <!-- Playlist sidebar -->
     <div class="yt-sidebar">
       <div class="yt-sb-header">
         <div class="yt-sb-title">
           <span>002 — Solar System</span>
-          <span id="solarCount" style="color:var(--g);">1 / 8</span>
+          <span id="solarCount" style="color:var(--g);">1 / 11</span>
         </div>
-        <div class="yt-sb-prog-bar"><div class="yt-sb-prog-fill" id="solarProgFill" style="width:12.5%"></div></div>
-        <div class="yt-sb-meta">8 Planets · Blender 3D Renders</div>
+        <div class="yt-sb-prog-bar"><div class="yt-sb-prog-fill" id="solarProgFill" style="width:9%"></div></div>
+        <div class="yt-sb-meta">Sun · Moon · 8 Planets + Overview · Blender 3D</div>
       </div>
       <div class="yt-sb-list" id="solarList"></div>
     </div>
   </div>
 </section>
- 
-<!-- ROTO — YouTube layout -->
+
+<!-- ROTO -->
 <section id="pg-roto" class="page yt-page">
   <div class="yt-layout">
-    <!-- Main panel -->
     <div class="yt-main" id="rotoMain"></div>
-    <!-- Playlist sidebar -->
     <div class="yt-sidebar">
       <div class="yt-sb-header">
         <div class="yt-sb-title">
@@ -500,7 +426,7 @@ button{border:none;background:none;font-family:'Oxanium',sans-serif;cursor:point
     </div>
   </div>
 </section>
- 
+
 <script>
 /* ═══ ROUTING ═══ */
 const PAGES=['home','about','solar','roto'];
@@ -516,9 +442,15 @@ function goPage(id){
   const ab=document.querySelector(`.tn-btn[onclick*="'${id}'"]`);
   if(ab)ab.classList.add('active');
 }
- 
-/* ═══ DATA ═══ */
+
+/* ═══ ROTO DATA ═══ */
+/* Week 00 = reference video (index 0), Weeks 01-14 = indices 1-14 */
 const WEEKS=[
+  // Week 00 — reference
+  {t:'Original Video Reference',time:'Full 60s',focus:'Reference',
+   d:'The original live-action reference footage used as the base for the entire rotoscoping project. Every traced frame across all 14 weeks is drawn directly over this video — study it carefully to understand how real movement translates into animation.',
+   tags:['Reference','Live Action','Source Footage','60 Seconds'],emoji:'🎥',isRef:true},
+  // Weeks 01-14
   {t:'Introduction to Rotoscoping',time:'0:00–0:05',focus:'Static Pose',d:'Set up the workspace and extracted first frames from reference footage. Practiced basic line tracing over still images to understand weight and proportion. First 5 seconds of the 60-second animation starts here — slow, deliberate strokes on simple movement reference.',tags:['Setup','Line Tracing','After Effects','Frame Extraction'],emoji:'🎬'},
   {t:'Workflow & Frame Extraction',time:'0:05–0:10',focus:'First Sequence',d:'Built a batch export pipeline for frames at 24fps. Established naming conventions and folder structure. Completed the first full traced sequence: a 2-second hand movement extended to the full 5-second walking reference clip.',tags:['Pipeline','Batch Export','Walking Cycle','Hands'],emoji:'🗂️'},
   {t:'Tracing Body Motion',time:'0:10–0:15',focus:'Full Body Turn',d:'Moved from isolated limbs to full-body movement. Studied the spine as the root of all motion. Tracing on 2s maintains fluidity without overworking. Week\'s clip features a dramatic full-body turn.',tags:['Body Mechanics','Timing','Spine','2s Tracing'],emoji:'🕺'},
@@ -534,31 +466,51 @@ const WEEKS=[
   {t:'Final Assembly',time:'0:55–1:00',focus:'Complete Film',d:'Assembled the final 5 seconds and connected the full 60-second animation as one seamless edit. Sound mixed, transitions smoothed, and 4K proxy export prepared for review.',tags:['Assembly','Final Mix','4K','Export'],emoji:'🎞️'},
   {t:'Final Output & Review',time:'0:55–1:00',focus:'Presentation',d:'Rendered the final piece at 4K/24fps. Reviewed the full 14-week journey, compiled a before/after comparison, and documented lessons learned. Week 14 closes the 60-second film — every frame, every layer, every decision unified.',tags:['Final Render','4K','Review','Submission','60sec'],emoji:'🏁'}
 ];
- 
-const PLANETS=[
-  {n:'Mercury',num:'01',t:'Terrestrial Planet',tclass:'type-rocky',cls:'mercury',d:'The closest planet to the Sun and the smallest in the solar system. Mercury experiences extreme temperature swings due to its lack of atmosphere. In Blender, rendered with high-contrast directional lighting and detailed rock texture displacement maps mimicking its heavily cratered surface.',facts:[{l:'Distance',v:'0.39 AU'},{l:'Diameter',v:'4,879 km'},{l:'Moons',v:'0'},{l:'Orbit',v:'88 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-180 to 430°C'}]},
-  {n:'Venus',  num:'02',t:'Terrestrial Planet',tclass:'type-rocky',cls:'venus',  d:'Often called Earth\'s twin in size, Venus is covered in thick CO₂ atmosphere. Volumetric cloud layers and an amber atmospheric glow were key to the render — simulating how light diffuses through dense sulfuric acid clouds.',facts:[{l:'Distance',v:'0.72 AU'},{l:'Diameter',v:'12,104 km'},{l:'Moons',v:'0'},{l:'Orbit',v:'225 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'465°C avg'}]},
-  {n:'Earth',  num:'03',t:'Terrestrial Planet',tclass:'type-rocky',cls:'earth',  d:'Our home planet. The Blender render focuses on the balance of blue oceans, white cloud coverage, and continental shapes. Used the atmosphere shader, ocean material with subsurface scattering, and procedural cloud coverage.',facts:[{l:'Distance',v:'1.00 AU'},{l:'Diameter',v:'12,756 km'},{l:'Moons',v:'1'},{l:'Orbit',v:'365 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-88 to 58°C'}]},
-  {n:'Mars',   num:'04',t:'Terrestrial Planet',tclass:'type-rocky',cls:'mars',   d:'The Red Planet — iron oxide gives Mars its signature rust color. Olympus Mons, the tallest volcano in the solar system, and polar ice caps were key features. Uses erosion-based surface textures and a thin pinkish atmospheric haze.',facts:[{l:'Distance',v:'1.52 AU'},{l:'Diameter',v:'6,792 km'},{l:'Moons',v:'2'},{l:'Orbit',v:'687 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-125 to 20°C'}]},
-  {n:'Jupiter',num:'05',t:'Gas Giant',          tclass:'type-gas',cls:'jupiter',d:'The largest planet in the solar system. Procedural band generation using noise-driven color ramps, the Great Red Spot as a swirling vortex shader, and a warm internal heat emission glow emanating from the equator.',facts:[{l:'Distance',v:'5.20 AU'},{l:'Diameter',v:'142,984 km'},{l:'Moons',v:'95'},{l:'Orbit',v:'12 Years'},{l:'Type',v:'Gas Giant'},{l:'Wind',v:'620 km/h'}]},
-  {n:'Saturn', num:'06',t:'Gas Giant',          tclass:'type-gas',cls:'saturn', d:'The jewel of the solar system. Saturn\'s ring system was the most complex render — geometry with transparency, shadow casting on the gas surface, and subsurface scattering through cloud layers. Rings are made of ice and rock particles.',facts:[{l:'Distance',v:'9.58 AU'},{l:'Diameter',v:'120,536 km'},{l:'Moons',v:'146'},{l:'Orbit',v:'29 Years'},{l:'Type',v:'Gas Giant'},{l:'Ring Width',v:'282,000 km'}]},
-  {n:'Uranus', num:'07',t:'Ice Giant',          tclass:'type-ice',cls:'uranus', d:'Pale blue-green from methane in its atmosphere, Uranus has a unique 98° axial tilt — it literally rolls on its side as it orbits the Sun. Captures subtle atmospheric banding and the faint thin ring plane unique to this ice giant.',facts:[{l:'Distance',v:'19.2 AU'},{l:'Diameter',v:'51,118 km'},{l:'Moons',v:'28'},{l:'Orbit',v:'84 Years'},{l:'Type',v:'Ice Giant'},{l:'Tilt',v:'97.8°'}]},
-  {n:'Neptune',num:'08',t:'Ice Giant',          tclass:'type-ice',cls:'neptune',d:'The farthest planet with the fastest winds in the solar system — reaching 2,100 km/h. Deep blue from methane absorption. Features dynamic cloud streaks and deep volumetric atmospheric scattering.',facts:[{l:'Distance',v:'30.1 AU'},{l:'Diameter',v:'49,528 km'},{l:'Moons',v:'16'},{l:'Orbit',v:'165 Years'},{l:'Type',v:'Ice Giant'},{l:'Wind',v:'2,100 km/h'}]}
+
+/* ═══ SOLAR DATA ═══ */
+/* Entries: Solar System Overview, Sun, Moon, then 8 planets */
+const SOLAR_ENTRIES=[
+  {
+    id:'system',n:'Solar System',num:'00',t:'Overview',tclass:'type-sys',cls:'system',
+    d:'A complete overview of our solar system rendered in Blender — all 8 planets, the Sun, and the Moon arranged in their relative orbital positions. This scene establishes the scale relationships, lighting hierarchy, and the overall color palette used across all individual planet renders in this project.',
+    facts:[{l:'Age',v:'4.6 Billion yr'},{l:'Planets',v:'8'},{l:'Moons',v:'290+'},{l:'Diameter',v:'~2 Light-yr'},{l:'Star',v:'The Sun'},{l:'Type',v:'Spiral arm'}],
+    isSpecial:true, specialType:'system'
+  },
+  {
+    id:'sun',n:'The Sun',num:'01',t:'Star — G-type',tclass:'type-star',cls:'sun',
+    d:'The star at the center of our solar system — a G-type main-sequence star comprising 99.86% of the system\'s total mass. In Blender, rendered using an emission shader with volume scatter to simulate the corona glow, surface granulation noise, and solar flare effects around the limb.',
+    facts:[{l:'Diameter',v:'1.39M km'},{l:'Surface Temp',v:'5,778 K'},{l:'Core Temp',v:'15M K'},{l:'Age',v:'4.6B years'},{l:'Type',v:'G2V Star'},{l:'Mass',v:'99.86% of system'}]
+  },
+  {
+    id:'moon',n:'The Moon',num:'02',t:'Earth\'s Satellite',tclass:'type-sat',cls:'moon',
+    d:'Earth\'s only natural satellite and the largest relative to its host planet in the solar system. In Blender, rendered with a highly detailed crater displacement map, a subtle regolith surface texture, and stark directional lighting to simulate the airless shadows visible during lunar phases.',
+    facts:[{l:'Distance',v:'384,400 km'},{l:'Diameter',v:'3,474 km'},{l:'Orbit',v:'27.3 Days'},{l:'Surface',v:'Regolith'},{l:'Temp',v:'-173 to 127°C'},{l:'Phases',v:'29.5 day cycle'}]
+  },
+  {n:'Mercury',num:'03',t:'Terrestrial Planet',tclass:'type-rocky',cls:'mercury',d:'The closest planet to the Sun and the smallest in the solar system. Mercury experiences extreme temperature swings due to its lack of atmosphere. In Blender, rendered with high-contrast directional lighting and detailed rock texture displacement maps mimicking its heavily cratered surface.',facts:[{l:'Distance',v:'0.39 AU'},{l:'Diameter',v:'4,879 km'},{l:'Moons',v:'0'},{l:'Orbit',v:'88 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-180 to 430°C'}]},
+  {n:'Venus',  num:'04',t:'Terrestrial Planet',tclass:'type-rocky',cls:'venus',  d:'Often called Earth\'s twin in size, Venus is covered in thick CO₂ atmosphere. Volumetric cloud layers and an amber atmospheric glow were key to the render — simulating how light diffuses through dense sulfuric acid clouds.',facts:[{l:'Distance',v:'0.72 AU'},{l:'Diameter',v:'12,104 km'},{l:'Moons',v:'0'},{l:'Orbit',v:'225 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'465°C avg'}]},
+  {n:'Earth',  num:'05',t:'Terrestrial Planet',tclass:'type-rocky',cls:'earth',  d:'Our home planet. The Blender render focuses on the balance of blue oceans, white cloud coverage, and continental shapes. Used the atmosphere shader, ocean material with subsurface scattering, and procedural cloud coverage.',facts:[{l:'Distance',v:'1.00 AU'},{l:'Diameter',v:'12,756 km'},{l:'Moons',v:'1'},{l:'Orbit',v:'365 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-88 to 58°C'}]},
+  {n:'Mars',   num:'06',t:'Terrestrial Planet',tclass:'type-rocky',cls:'mars',   d:'The Red Planet — iron oxide gives Mars its signature rust color. Olympus Mons, the tallest volcano in the solar system, and polar ice caps were key features. Uses erosion-based surface textures and a thin pinkish atmospheric haze.',facts:[{l:'Distance',v:'1.52 AU'},{l:'Diameter',v:'6,792 km'},{l:'Moons',v:'2'},{l:'Orbit',v:'687 Days'},{l:'Type',v:'Rocky'},{l:'Temp',v:'-125 to 20°C'}]},
+  {n:'Jupiter',num:'07',t:'Gas Giant',          tclass:'type-gas',cls:'jupiter',d:'The largest planet in the solar system. Procedural band generation using noise-driven color ramps, the Great Red Spot as a swirling vortex shader, and a warm internal heat emission glow emanating from the equator.',facts:[{l:'Distance',v:'5.20 AU'},{l:'Diameter',v:'142,984 km'},{l:'Moons',v:'95'},{l:'Orbit',v:'12 Years'},{l:'Type',v:'Gas Giant'},{l:'Wind',v:'620 km/h'}]},
+  {n:'Saturn', num:'08',t:'Gas Giant',          tclass:'type-gas',cls:'saturn', d:'The jewel of the solar system. Saturn\'s ring system was the most complex render — geometry with transparency, shadow casting on the gas surface, and subsurface scattering through cloud layers. Rings are made of ice and rock particles.',facts:[{l:'Distance',v:'9.58 AU'},{l:'Diameter',v:'120,536 km'},{l:'Moons',v:'146'},{l:'Orbit',v:'29 Years'},{l:'Type',v:'Gas Giant'},{l:'Ring Width',v:'282,000 km'}]},
+  {n:'Uranus', num:'09',t:'Ice Giant',          tclass:'type-ice',cls:'uranus', d:'Pale blue-green from methane in its atmosphere, Uranus has a unique 98° axial tilt — it literally rolls on its side as it orbits the Sun. Captures subtle atmospheric banding and the faint thin ring plane unique to this ice giant.',facts:[{l:'Distance',v:'19.2 AU'},{l:'Diameter',v:'51,118 km'},{l:'Moons',v:'28'},{l:'Orbit',v:'84 Years'},{l:'Type',v:'Ice Giant'},{l:'Tilt',v:'97.8°'}]},
+  {n:'Neptune',num:'10',t:'Ice Giant',          tclass:'type-ice',cls:'neptune',d:'The farthest planet with the fastest winds in the solar system — reaching 2,100 km/h. Deep blue from methane absorption. Features dynamic cloud streaks and deep volumetric atmospheric scattering.',facts:[{l:'Distance',v:'30.1 AU'},{l:'Diameter',v:'49,528 km'},{l:'Moons',v:'16'},{l:'Orbit',v:'165 Years'},{l:'Type',v:'Ice Giant'},{l:'Wind',v:'2,100 km/h'}]}
 ];
- 
+
+const TOTAL_SOLAR=SOLAR_ENTRIES.length;
+
 /* ═══ SOLAR BUILD ═══ */
 let activePlanet=0;
 (function(){
   const list=document.getElementById('solarList');
-  PLANETS.forEach((p,i)=>{
+  SOLAR_ENTRIES.forEach((p,i)=>{
     const btn=document.createElement('button');
-    btn.className='pl-item'+(i===0?' active':'');
+    const isRef=(p.id==='system');
+    btn.className='pl-item'+(i===0?' active':'')+(isRef?' ref-item':'');
     btn.id='pitem'+i;
-    // Sidebar sizes: orb varies by planet
-    const orbSizes={mercury:26,venus:34,earth:36,mars:28,jupiter:44,saturn:38,uranus:32,neptune:30};
-    const sz=orbSizes[p.cls]||32;
+    const orbSizes={system:38,sun:42,moon:28,mercury:22,venus:30,earth:32,mars:24,jupiter:42,saturn:34,uranus:28,neptune:26};
+    const sz=orbSizes[p.cls]||28;
     btn.innerHTML=`
-      <div class="pl-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="pl-num">${p.num}</div>
       <div class="pl-thumb">
         <div class="pl-thumb-inner" style="padding:8px;">
           <div class="pl-thumb-orb orb-${p.cls}" style="width:${sz}px;height:${sz}px;"></div>
@@ -568,7 +520,7 @@ let activePlanet=0;
         <div class="pl-info-title">${p.n}</div>
         <div class="pl-info-sub">
           <span class="pl-info-badge ${p.tclass}">${p.t}</span>
-          <span>${p.facts[0].v} from Sun</span>
+          ${p.facts[0]?`<span>${p.facts[0].v}</span>`:''}
         </div>
       </div>`;
     btn.onclick=()=>selectPlanet(i);
@@ -576,42 +528,64 @@ let activePlanet=0;
   });
   selectPlanet(0);
 })();
- 
+
+function buildOrrery(){
+  const colors=['#888','#c8820a','#1470b8','#7e2010','#c08030','#b47228','#1890b0','#0e3cc0'];
+  const sizes=[6,8,9,7,14,12,10,9];
+  const radii=[52,68,82,96,116,136,154,170];
+  let html=`<div class="solar-overview">`;
+  html+=`<div class="sun-glow" style="width:260px;height:260px;left:calc(50% - 130px);top:calc(50% - 130px);"></div>`;
+  radii.forEach((r,i)=>{
+    const angle=(i*47)*(Math.PI/180);
+    const x=50+Math.cos(angle)*(r/2.2);
+    const y=50+Math.sin(angle)*(r/2.2);
+    html+=`<div class="orrery-orbit" style="width:${r}px;height:${r/1.8}px;left:calc(50% - ${r/2}px);top:calc(50% - ${r/3.6}px);"></div>`;
+    html+=`<div class="orrery-dot" style="width:${sizes[i]}px;height:${sizes[i]}px;background:${colors[i]};left:calc(${x}% - ${sizes[i]/2}px);top:calc(${y}% - ${sizes[i]/2}px);transform:none;border-radius:50%;position:absolute;"></div>`;
+  });
+  html+=`<div class="orrery-sun"></div>`;
+  html+=`</div>`;
+  return html;
+}
+
 function selectPlanet(i){
   document.querySelectorAll('#solarList .pl-item').forEach((b,j)=>b.classList.toggle('active',j===i));
   activePlanet=i;
-  // Update sidebar header
-  document.getElementById('solarCount').textContent=`${i+1} / 8`;
-  document.getElementById('solarProgFill').style.width=`${((i+1)/8)*100}%`;
-  // Scroll item into view
+  document.getElementById('solarCount').textContent=`${i+1} / ${TOTAL_SOLAR}`;
+  document.getElementById('solarProgFill').style.width=`${((i+1)/TOTAL_SOLAR)*100}%`;
   const btn=document.getElementById('pitem'+i);
   if(btn)btn.scrollIntoView({block:'nearest',behavior:'smooth'});
-  // Render main
-  const p=PLANETS[i];
-  const ring=p.cls==='saturn'?`<div class="saturn-ring" style="width:290px;height:44px;left:calc(50% - 145px);top:calc(50% - 22px);position:absolute;"></div>`:'';
+  const p=SOLAR_ENTRIES[i];
   const main=document.getElementById('solarMain');
+
+  let visHTML='';
+  if(p.cls==='system'){
+    visHTML=`<div class="planet-vis">${buildOrrery()}<div class="planet-badge">BLENDER OVERVIEW</div></div>`;
+  } else if(p.cls==='saturn'){
+    visHTML=`<div class="planet-vis"><div class="planet-badge">BLENDER RENDER</div><div class="saturn-ring" style="width:290px;height:44px;left:calc(50% - 145px);top:calc(50% - 22px);position:absolute;"></div><div class="pp-sphere pp-saturn"></div></div>`;
+  } else if(p.cls==='sun'){
+    visHTML=`<div class="planet-vis"><div class="planet-badge">BLENDER RENDER</div><div class="sun-glow" style="width:340px;height:340px;left:calc(50% - 170px);top:calc(50% - 170px);"></div><div class="pp-sphere pp-sun"></div></div>`;
+  } else {
+    visHTML=`<div class="planet-vis"><div class="planet-badge">BLENDER RENDER</div><div class="pp-sphere pp-${p.cls}"></div></div>`;
+  }
+
   main.innerHTML=`
-    <div class="planet-vis">
-      <div class="planet-badge">BLENDER RENDER</div>
-      ${ring}
-      <div class="pp-sphere pp-${p.cls}"></div>
-    </div>
+    ${visHTML}
     <div class="yt-info" style="padding-bottom:20px;">
-      <div class="yt-info-eyebrow">Planet ${p.num} of 08 · ${p.t}</div>
+      <div class="yt-info-eyebrow">Entry ${p.num} of ${String(TOTAL_SOLAR-1).padStart(2,'0')} · ${p.t}</div>
       <div class="yt-info-title">${p.n}</div>
       <p class="yt-info-desc">${p.d}</p>
     </div>
     <div class="planet-facts">${p.facts.map(f=>`<div class="pf-cell"><div class="pf-l">${f.l}</div><div class="pf-v">${f.v}</div></div>`).join('')}</div>
-    <div style="padding:0 32px 16px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;line-height:1.9;color:var(--mute);border:1px solid rgba(46,255,154,.07);margin:0 32px;padding:12px 16px;border-left:2px solid var(--g);">
-      <strong style="color:var(--g)">// Add your render:</strong> Export from Blender as PNG/JPG and place an &lt;img&gt; inside <code style="color:var(--g);background:rgba(46,255,154,.07);padding:1px 5px;">.planet-vis</code> pointing to <code style="color:var(--g);background:rgba(46,255,154,.07);padding:1px 5px;">renders/${p.cls}.png</code>
+    <div style="margin:0 36px 0;padding:13px 18px;border:1px solid rgba(46,255,154,.08);border-left:2px solid var(--g);font-family:'JetBrains Mono',monospace;font-size:.64rem;line-height:1.85;color:var(--mute);">
+      <strong style="color:var(--g)">// Add your render:</strong> Export from Blender as PNG/JPG and place an &lt;img&gt; inside <code style="color:var(--g);background:rgba(46,255,154,.07);padding:2px 6px;">planet-vis</code> pointing to <code style="color:var(--g);background:rgba(46,255,154,.07);padding:2px 6px;">renders/${p.cls}.png</code>
     </div>
-    <div class="yt-nav" style="margin-top:16px;">
+    <div class="yt-nav" style="margin-top:14px;">
       <button class="yt-nav-btn" onclick="selectPlanet(${i-1})" ${i===0?'disabled':''}>← Prev</button>
       <span class="yt-nav-spacer"></span>
-      <button class="yt-nav-btn yt-nav-next" onclick="selectPlanet(${i+1})" ${i===7?'disabled':''}>Next Planet →</button>
+      <button class="yt-nav-btn yt-nav-next" onclick="selectPlanet(${i+1})" ${i===TOTAL_SOLAR-1?'disabled':''}>Next →</button>
     </div>`;
 }
- 
+
 /* ═══ ROTO BUILD ═══ */
 let activeWeek=0;
 const doneSet=new Set();
@@ -619,16 +593,17 @@ const vidStore={};
 (function(){
   const list=document.getElementById('rotoList');
   WEEKS.forEach((w,i)=>{
-    const n=i+1;
-    const pct=Math.round((n/14)*100);
+    const label=i===0?'00':''+String(i).padStart(2,'0');
+    const isRef=!!w.isRef;
     const btn=document.createElement('button');
-    btn.className='pl-item'+(i===0?' active':'');
+    btn.className='pl-item'+(i===0?' active':'')+(isRef?' ref-item':'');
     btn.id='witem'+i;
+    const pct=isRef?0:Math.round((i/14)*100);
     btn.innerHTML=`
-      <div class="pl-num">${String(n).padStart(2,'0')}</div>
-      <div class="pl-thumb" style="min-height:56px;">
+      <div class="pl-num">${label}</div>
+      <div class="pl-thumb" style="min-height:60px;">
         <div class="pl-thumb-roto">${w.emoji}</div>
-        <div class="pl-thumb-bar"><div class="pl-thumb-bar-fill" style="width:${pct}%"></div></div>
+        ${!isRef?`<div class="pl-thumb-bar"><div class="pl-thumb-bar-fill" style="width:${pct}%"></div></div>`:''}
       </div>
       <div class="pl-info">
         <div class="pl-info-title">${w.t}</div>
@@ -642,13 +617,13 @@ const vidStore={};
   });
   selectWeek(0);
 })();
- 
+
 function updateRotoHeader(){
   const done=doneSet.size;
   document.getElementById('doneCount').textContent=`${done} / 14`;
   document.getElementById('rotoProgFill').style.width=`${(done/14)*100}%`;
 }
- 
+
 function selectWeek(i){
   document.querySelectorAll('#rotoList .pl-item').forEach((b,j)=>b.classList.toggle('active',j===i));
   activeWeek=i;
@@ -656,14 +631,20 @@ function selectWeek(i){
   if(btn)btn.scrollIntoView({block:'nearest',behavior:'smooth'});
   renderWeek(i);
 }
- 
+
 function renderWeek(i){
   const w=WEEKS[i];
-  const n=i+1;
-  const pct=Math.round((n/14)*100);
+  const isRef=!!w.isRef;
+  const n=isRef?'00':String(i).padStart(2,'0');
+  const pct=isRef?0:Math.round((i/14)*100);
   const vid=vidStore[i];
-  const isDone=doneSet.has(i);
+  const isDone=!isRef&&doneSet.has(i);
   const main=document.getElementById('rotoMain');
+
+  const eyebrowLabel=isRef
+    ?`Reference Video · Full 60s · <span style="color:var(--v)">Source Material</span>`
+    :`Week ${n} of 14 · ${w.time} · <span style="color:var(--g)">${w.focus}</span>${isDone?'&nbsp;<span style="color:var(--g2)">✓ DONE</span>':''}`;
+
   main.innerHTML=`
     <div class="yt-video-wrap">
       <div class="yt-video-ratio" id="vr${i}">
@@ -671,7 +652,7 @@ function renderWeek(i){
           ?`<iframe src="${vid}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`
           :`<div class="yt-video-ph">
               <div class="yt-play-btn">▶</div>
-              <p class="yt-ph-txt">PASTE YOUTUBE LINK BELOW<br>TO EMBED WEEK ${n} CLIP<br><span style="color:rgba(46,255,154,.3)">${w.time}</span></p>
+              <p class="yt-ph-txt">${isRef?'PASTE ORIGINAL VIDEO LINK':'PASTE YOUTUBE LINK BELOW'}<br>${isRef?'YOUR REFERENCE FOOTAGE':'TO EMBED WEEK '+n+' CLIP'}<br><span style="color:rgba(${isRef?'185,79,255':'46,255,154'},.3)">${w.time}</span></p>
             </div>`
         }
       </div>
@@ -681,29 +662,31 @@ function renderWeek(i){
       </div>
     </div>
     <div class="yt-info">
-      <div class="yt-info-eyebrow">Week ${String(n).padStart(2,'0')} of 14 · ${w.time} · <span style="color:var(--g)">${w.focus}</span>${isDone?'&nbsp;<span style="color:var(--g2)">✓ DONE</span>':''}</div>
+      <div class="yt-info-eyebrow">${eyebrowLabel}</div>
       <div class="yt-info-title">${w.t}</div>
       <div class="yt-info-tags">${w.tags.map(t=>`<span class="yt-tag">${t}</span>`).join('')}</div>
       <p class="yt-info-desc">${w.d}</p>
     </div>
+    ${!isRef?`
     <div class="yt-prog-bar-wrap">
       <span class="yt-pbl">Film Completion</span>
       <div class="yt-pb-track"><div class="yt-pb-fill" style="width:${pct}%"></div></div>
       <span class="yt-pb-pct">${pct}%</span>
-    </div>
+    </div>`:''}
     <div class="yt-nav">
       <button class="yt-nav-btn" onclick="selectWeek(${i-1})" ${i===0?'disabled':''}>← Prev</button>
-      <button class="yt-nav-btn yt-nav-done${isDone?' done-btn':''}" onclick="markDone(${i})" ${isDone?'disabled':''} style="${isDone?'opacity:.5;cursor:not-allowed':''}">
+      ${!isRef?`<button class="yt-nav-btn yt-nav-done${isDone?' done-btn':''}" onclick="markDone(${i})" ${isDone?'disabled':''} style="${isDone?'opacity:.5;cursor:not-allowed':''}">
         ${isDone?'✓ Completed':'✓ Mark Done'}
-      </button>
+      </button>`:''}
       <span class="yt-nav-spacer"></span>
-      <button class="yt-nav-btn yt-nav-next" onclick="selectWeek(${i+1})" ${i===13?'disabled':''}>Next Week →</button>
+      <button class="yt-nav-btn yt-nav-next" onclick="selectWeek(${i+1})" ${i===14?'disabled':''}>Next →</button>
     </div>`;
   const inp=document.getElementById('yti'+i);
   if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')embedVid(i);});
 }
- 
+
 function markDone(i){
+  if(WEEKS[i].isRef)return;
   doneSet.add(i);
   updateRotoHeader();
   const btn=document.getElementById('witem'+i);
@@ -714,7 +697,7 @@ function markDone(i){
   }
   renderWeek(i);
 }
- 
+
 function embedVid(i){
   const raw=document.getElementById('yti'+i)?.value.trim();
   if(!raw)return;
@@ -729,7 +712,7 @@ function embedVid(i){
   const inp=document.getElementById('yti'+i);
   if(inp)inp.value='';
 }
- 
+
 document.getElementById('pg-home').style.display='flex';
 </script>
 </body>
